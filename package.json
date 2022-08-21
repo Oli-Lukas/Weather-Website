@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node ./bin/www.js"
+    "start": "node ./bin/www.js",
+    "start:development": "nodemon ./bin/www.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -13,5 +14,7 @@
     "express": "~4.16.1",
     "morgan": "~1.9.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
 }
