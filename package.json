@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "start": "node ./bin/www.js",
-    "start:development": "nodemon ./bin/www.js"
+    "start:development": "nodemon ./bin/www.js",
+    "css:watch": "sass --style compressed --watch ./src/sass/index.scss ./src/public/css/style.min.css",
+    "css:build": "sass --style compressed ./src/sass/index.scss ./src/public/css/style.min.css"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -15,6 +17,7 @@
     "morgan": "~1.9.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "sass": "^1.54.5"
   }
 }
