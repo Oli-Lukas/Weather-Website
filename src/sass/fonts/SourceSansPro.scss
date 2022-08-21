@@ -1,0 +1,25 @@
+$font-directory: "/fonts/Source-Sans-Pro";
+$font-weights: (
+  "ExtraLight": 200,
+  "Light"     : 300,
+  "Regular"   : 400,
+  "SemiBold"  : 600,
+  "Bold"      : 700,
+  "Black"     : 900
+);
+
+@each $weight-name, $weight-value in $font-weights {
+  @font-face {
+    font-family: "Source Sans Pro";
+    src: url($font-directory + "/SourceSansPro-"+ $weight-name +".ttf") format("TrueType");
+    font-weight: $weight-value;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Source Sans Pro";
+    src: url($font-directory + "/SourceSansPro-"+ $weight-name +"Italic.ttf") format("TrueType");
+    font-weight: $weight-value;
+    font-style: italic;
+  }
+}
