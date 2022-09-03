@@ -3,3 +3,13 @@
   padding: 0;
   font-family: "Source Sans Pro";
 }
+
+body {
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/images/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}

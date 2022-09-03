@@ -1,8 +1,30 @@
-header {
-  background-image: url("/images/header-background.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+div.sidebar-menu {
+  width: 600px;
+  height: 100%;
 
-  width: 100%;
-  height: 15rem;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  backdrop-filter: blur(5px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  input.city-input {
+    width: 80%;
+    margin-top: 1.5rem;
+
+    font-size: 1.15rem;
+    color: white;
+    padding-bottom: 4px;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #bdc3c7;
+
+    transition: border-bottom 0s;
+
+    &:focus {
+      outline: 0;
+      border-bottom: 1.5px solid #bdc3c7;
+    }
+  }
 }
