@@ -7,24 +7,64 @@ div.sidebar-menu {
 
   display: flex;
   flex-direction: column;
+
+  form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    input.city-input {
+      width: 80%;
+      margin-top: 1.5rem;
+  
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: white;
+      padding-bottom: 4px;
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid #bdc3c7;
+  
+      transition: border-bottom 0s;
+  
+      &:focus {
+        outline: 0;
+        border-bottom: 1.5px solid #bdc3c7;
+      }
+    }
+  }
+}
+
+div.city-info {
+  flex: 1;
+
+  display: flex;
+  justify-content: center;
   align-items: center;
 
-  input.city-input {
-    width: 80%;
-    margin-top: 1.5rem;
-
-    font-size: 1.15rem;
+  h1.temperature {
+    // font-family: "Aboreto";
     color: white;
-    padding-bottom: 4px;
-    background: transparent;
-    border: 0;
-    border-bottom: 1px solid #bdc3c7;
+    font-size: 7rem;
+    font-weight: 400;
+  }
+  
+  div.city-name-wrapper {
+    margin-left: 1.5rem;
+    
+    h2.city-name {
+      // font-family: "Aboreto";
+      color: white;
+      font-size: 2rem;
+      font-weight: 400;
+    }
 
-    transition: border-bottom 0s;
-
-    &:focus {
-      outline: 0;
-      border-bottom: 1.5px solid #bdc3c7;
+    h5.additional-information {
+      color: white;
+      font-size: 0.95rem;
+      font-weight: 400;
     }
   }
 }
