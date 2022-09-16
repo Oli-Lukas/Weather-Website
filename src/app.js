@@ -1,10 +1,11 @@
 import express      from 'express';
+import { engine }   from 'express-handlebars';
 import path         from 'path';
 import __dirname    from './dirname.js';
 import cookieParser from 'cookie-parser';
 import cors         from 'cors';
 import logger       from 'morgan';
-import usersRouter  from './routes/users.js';
+import Router       from './routes/routes.js';
 
 const app = express();
 
@@ -15,9 +16,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, "public")));
-app.use(express.static(path.join(__dirname, "public", "pages")));
 
-app.use('/users', usersRouter);
+app.engine('handlebars', engine({
+  layoutsDir: `${__dirname}/public/views/layouts`,
+  defaultLayout: 'main.handlebars',
+}));
+
+app.set('view engine', 'handlebars');
+app.set('views', path.join(__dirname, 'public', 'views', 'pages'));
+
+app.use('/', Router);
 
 app.use(function (req, res, next) {
   res.status(404).json({message: "We couldn't find what you were looking for 😞"})
