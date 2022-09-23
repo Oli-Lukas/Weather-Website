@@ -1,36 +1,17 @@
-const APIURL               = "http://dataservice.accuweather.com";
-const citiesAPI            = "locations/v1/cities";
-const currentConditionsAPI = "currentconditions/v1";
-const APIKey               = "";
-
 const cityForm  = document.querySelector("#city-form");
 const cityInput = document.querySelector(".city-input");
 
-cityForm.addEventListener('submit', (event) => {
+cityForm.addEventListener('submit', async (event) => {
   event.preventDefault();
 
-  fetch(`${APIURL}/${citiesAPI}/search?q=${cityInput.value}&apikey=${APIKey}`)
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      let locationKey = data[0].Key;
-      let language    = "pt-br";
+  let cityName = cityInput.value;
 
-      console.log(`Primeiro fetch`);
-      console.log(data);
+  let rawResponse = await fetch(`/city-information/${cityName}`);
+  let response = await rawResponse.json();
 
-      return fetch(`${APIURL}/${currentConditionsAPI}/${locationKey}?apikey=${APIKey}&language=${language}`);
-    })
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      data = {...data[0], cityName: cityInput.value};
-      console.log(data);  
+  response = {...response, cityName: cityInput.value};
 
-      showCity(data);
-    });
+  showCity(response);
 });
 
 function showCity(information) {

@@ -10,9 +10,12 @@
     "css:build": "sass --style compressed ./src/sass/index.scss ./src/public/css/style.min.css"
   },
   "dependencies": {
+    "axios": "^0.27.2",
+    "body-parser": "^1.20.0",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
+    "dotenv": "^16.0.2",
     "express": "~4.16.1",
     "express-handlebars": "^6.0.6",
     "morgan": "~1.9.1"
