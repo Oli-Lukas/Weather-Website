@@ -7,6 +7,7 @@ div.sidebar-menu {
 
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   form {
     width: 100%;
@@ -35,36 +36,47 @@ div.sidebar-menu {
       }
     }
   }
-}
 
-div.city-info {
-  flex: 1;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  h1.temperature {
-    // font-family: "Aboreto";
-    color: white;
-    font-size: 7rem;
-    font-weight: 400;
+  div.suggestion-cities {
+    height: 350px;
+  }
+ 
+  hr {
+    width: 80%;
+    border: 0;
+    border-top: 1px solid #bdc3c7;
   }
   
-  div.city-name-wrapper {
-    margin-left: 1.5rem;
+  div.city-information {
+    width: 80%;
+    color: white;
+    padding: 1.25rem 0;
     
-    h2.city-name {
-      // font-family: "Aboreto";
-      color: white;
-      font-size: 2rem;
-      font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+    div.field {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
     }
 
-    h5.additional-information {
+    div.field > p.title {
+      color: #bdc3c7;
+    }
+
+    div.field > p.data {
       color: white;
-      font-size: 0.95rem;
-      font-weight: 400;
+    }
+
+    div.field:nth-child(2) {
+      margin-top: 2.5rem;
+    }
+
+    div.field:nth-child(n + 3) {
+      margin-top: 1rem;
     }
   }
 }

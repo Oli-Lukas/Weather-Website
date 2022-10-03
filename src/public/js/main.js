@@ -15,13 +15,18 @@ cityForm.addEventListener('submit', async (event) => {
 });
 
 function showCity(information) {
-  const tempElement = document.querySelector("h1.temperature");
-  const cityNameElement = document.querySelector("h2.city-name");
-  const additionalInformationElement = document.querySelector("h5.additional-information");
+  const tempElement = document.querySelector("div.field.temperature > p.data");
+  const cityNameElement = document.querySelector("div.field.name > p.data");
+  const additionalInformationElement = document.querySelector("div.field.datetime > p.data");
+  const conditionsElement = document.querySelector("div.field.conditions > p.data");
 
   tempElement.innerHTML = '';
   cityNameElement.innerHTML = '';
   additionalInformationElement.innerHTML = '';
+  conditionsElement.innerHTML = '';
+
+  let currentConditions = document.createTextNode(information.WeatherText);
+
 
   let temperature = information.Temperature.Metric.Value;
 
@@ -40,14 +45,16 @@ function showCity(information) {
   let weekDay    = dayName(date.getDay());
   let day        = date.getDate();
   let month      = monthName(date.getMonth(), true);
+  let year       = date.getFullYear();
 
-  let stringDate = `${stringTime} - ${weekDay}, ${day} de ${month}`;
+  let stringDate = `${stringTime} - ${weekDay}, ${day} de ${month} de ${year}`;
   stringDate = document.createTextNode(stringDate);
 
 
   tempElement.appendChild(temperature);
   cityNameElement.appendChild(cityName);
   additionalInformationElement.appendChild(stringDate);
+  conditionsElement.appendChild(currentConditions);
 }
 
 function dayName(dayNumber) {
