@@ -4,7 +4,6 @@ import path         from 'path';
 import cookieParser from 'cookie-parser';
 import cors         from 'cors';
 import logger       from 'morgan';
-import bodyParser   from 'body-parser';
 import __dirname    from './dirname.js';
 import Router       from './routes/routes.js';
 
