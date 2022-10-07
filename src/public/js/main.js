@@ -19,7 +19,12 @@ cityForm.addEventListener('submit', async (event) => {
   showCity(response);
 });
 
-function showCity(information) {
+function showCity(data) {
+  insertTitles();
+  insertData(data);
+}
+
+function insertTitles() {
   let tagTitleElements = {
     cityName   : document.querySelector("div.field.name > p.title"),
     temperature: document.querySelector("div.field.temperature > p.title"),
@@ -43,7 +48,9 @@ function showCity(information) {
   tagTitleElements.temperature.appendChild(titlesTextNode.temperature);
   tagTitleElements.datetime.appendChild(titlesTextNode.datetime);
   tagTitleElements.conditions.appendChild(titlesTextNode.conditions);
+}
 
+function insertData(data) {
   let tagDataElements = {
     cityName   : document.querySelector("div.field.name > p.data"),
     temperature: document.querySelector("div.field.temperature > p.data"),
@@ -52,10 +59,10 @@ function showCity(information) {
   };
 
   let dataTextNode = {
-    cityName   : document.createTextNode(information.cityName),
-    temperature: temperatureNode(information.Temperature.Metric.Value),
-    datetime   : dateTimeNode(new Date(information.LocalObservationDateTime)),
-    conditions : document.createTextNode(information.WeatherText)
+    cityName   : document.createTextNode(data.cityName),
+    temperature: temperatureNode(data.Temperature.Metric.Value),
+    datetime   : dateTimeNode(new Date(data.LocalObservationDateTime)),
+    conditions : document.createTextNode(data.WeatherText)
   };
 
   tagDataElements.cityName.innerHTML    = '';
