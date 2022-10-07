@@ -1,4 +1,4 @@
-export function dayName(dayNumber) {
+function dayName(dayNumber) {
   switch(dayNumber) {
     case 0:
       return "Domingo";
@@ -17,7 +17,7 @@ export function dayName(dayNumber) {
   }
 };
 
-export function monthName(monthNumber, shortName) {
+function monthName(monthNumber, shortName) {
   switch(monthNumber) {
     case 0:
       return shortName ? "Janeiro" : "Jan";
@@ -45,3 +45,25 @@ export function monthName(monthNumber, shortName) {
       return shortName ? "Dezembro" : "Dez";
   }
 };
+
+export function temperatureNode(temperature) {
+  let temp = Math.ceil(Number(temperature));
+  temp = String(temp) + 'º';
+  return document.createTextNode(temp);
+}
+
+export function dateTimeNode(date) {
+  let hours   = date.getHours().toString().padStart(2, '0');
+  let minutes = date.getMinutes().toString().padStart(2, '0');
+  let stringTime = `${hours}:${minutes}`;
+
+  let weekDay = dayName(date.getDay());
+  let day     = date.getDate();
+  let month   = monthName(date.getMonth(), true);
+  let year    = date.getFullYear();
+  let stringDate = `${weekDay}, ${day} de ${month} de ${year}`;
+
+  let stringDateTime = `${stringTime} - ${stringDate}`;
+  
+  return document.createTextNode(stringDateTime);
+}
